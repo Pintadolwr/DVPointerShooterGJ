@@ -7,6 +7,7 @@ public class Target : MonoBehaviour
     private Rigidbody rb;
     [SerializeField]
     private float speed = 30.0f;
+
     private Vector3 snapPosition;
     private Quaternion originalRotationValue;
     // Start is called before the first frame update
