@@ -364,7 +364,7 @@ MonoBehaviour:
   scoreText: {fileID: 1015269416}
   timeText: {fileID: 137736422}
   gameOverText: {fileID: 1123975582}
-  timeCount: 30
+  timeCount: 25
   maxScore: 20
   hitSound: {fileID: 8300000, guid: b7f701a1e4229784aae8da5ef7ef826d, type: 3}
 --- !u!54 &203044183
@@ -858,8 +858,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.947933, y: 4.395422, z: 0.5605928}
-  m_Center: {x: 0.51930046, y: 0.93873453, z: -0.21970361}
+  m_Size: {x: 11.2617235, y: 5.8608627, z: 0.5605928}
+  m_Center: {x: 1.1761956, y: 1.6714549, z: -0.21970361}
 --- !u!1 &942796912 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f617a18b58228044d95caec409dccbd3, type: 3}

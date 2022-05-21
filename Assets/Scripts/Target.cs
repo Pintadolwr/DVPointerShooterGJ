@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Target : MonoBehaviour
 {
@@ -54,6 +55,12 @@ public class Target : MonoBehaviour
         }
         timeCounter();
         scoreCounter();
+        //if (gameOverText.text == "GAME OVER!") {
+        //    Debug.Log("Chegou");
+        //    StartCoroutine(wait());
+        //    Debug.Log("Deu certo");
+        //    Application.Quit();
+        //}
     }
 
     void timeCounter() { 
@@ -78,6 +85,10 @@ public class Target : MonoBehaviour
             Time.timeScale = 0f;
             timeText.text = "Time: " + timeCount;
         }
+    }
+
+    IEnumerator wait() {
+        yield return new WaitForSeconds(5f);
     }
 
     private void FixedUpdate()
