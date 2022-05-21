@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PistolLimits
   - wallCollider
+  - bullet
   layers:
   - Default
   - TransparentFX
