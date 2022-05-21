@@ -27,6 +27,9 @@ public class Target : MonoBehaviour
     [SerializeField]
     public int maxScore;
 
+    public AudioClip hitSound;
+    private AudioSource audiosource;
+
     private Vector3 snapPosition;
     private Quaternion originalRotationValue;
     // Start is called before the first frame update
@@ -37,6 +40,7 @@ public class Target : MonoBehaviour
         originalRotationValue = transform.rotation;
         scoreText.text = "Score: " + score;
         gameOverText.text = "";
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -92,6 +96,7 @@ public class Target : MonoBehaviour
         {
             score++;
             scoreText.text = "Score: " + score;
+            audiosource.Play();
         }
     }
 }
