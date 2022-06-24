@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class Bola : MonoBehaviour {
 
-    private Rigidbody rb;
-    private float speed= 40.0f;
+   private Rigidbody rb;
+    private float speed = 100.0f;
     private Vector3 snapPosition;
-    private Quaternion oRV;
+    private Quaternion originalRotationValue;
+
     void Start()
     {
         rb = GetComponent<Rigidbody> ();
-        snapPosition=this.transform.position;
-        oRV= transform.rotation;
+        snapPosition = this.transform.position;
+        originalRotationValue = transform.rotation;
     }
 
-    void Update ()
+    // Update is called once per frame
+    void Update()
     {
-    if (Input.GetKey(KeyCode.Escape))
-    {
-        Debug.Log(snapPosition);
-        this.transform.position=snapPosition;
-        transform.rotation=oRV;
-        rb.angularVelocity=new Vector3(0,0,0);
-        rb.velocity= new Vector3(0,0,0);
-    }
+         if( Input.GetKey(KeyCode.Escape))
+        {
+            this.transform.position= snapPosition;
+            transform.rotation = originalRotationValue;
+            rb.angularVelocity= new Vector3(0,0,0);
+            rb.velocity= new Vector3(0,0,0);
+
+        }
     }
 
-    void FixedUpdate () 
-    {
+    void FixedUpdate () {
         float moveHorizontal = Input.GetAxis ("Horizontal");
         float moveVertical = Input.GetAxis ("Vertical");
         Vector3 movement = new Vector3 (moveHorizontal, 0, moveVertical);
@@ -46,5 +47,15 @@ public class Bola : MonoBehaviour {
     void OnCollisionExit()
     {
         //Debug.Log ("Fim da colisão");
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("golfScore") ) {
+            this.transform.position = snapPosition;
+            transform.rotation = originalRotationValue; 
+            rb.angularVelocity= new Vector3(0,0,0);
+            rb.velocity= new Vector3(0,0,0);
+        }
     }
 }
