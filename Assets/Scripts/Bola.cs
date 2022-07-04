@@ -1,13 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bola : MonoBehaviour {
 
-   private Rigidbody rb;
-    private float speed = 100.0f;
+    private Rigidbody rb;
+
+    [SerializeField]
+    private float speed;
     private Vector3 snapPosition;
     private Quaternion originalRotationValue;
+
+    private int score = 0;
+
+    [SerializeField]
+    public Text scoreText;
+
+    [SerializeField]
+    public Text timeText;
+
+    [SerializeField]
+    public Text gameOverText;
+
+    [SerializeField]
+    public float timeCount = 30;
+
+    [SerializeField]
+    public int maxScore;
 
     void Start()
     {
@@ -36,20 +56,19 @@ public class Bola : MonoBehaviour {
         rb.AddForce (movement * speed);
     }
 
-    void OnCollisionEnter()
+    private void OnCollisionEnter(Collision collision)
     {
-       // Debug.Log ("Início da colisão");
-    }
-    void OnCollisionStay()
-    {
-        //Debug.Log ("Em colisão");
-    }
-    void OnCollisionExit()
-    {
-        //Debug.Log ("Fim da colisão");
+        if (collision.collider.CompareTag("golfScore"))
+        {
+            this.transform.position = snapPosition;
+            transform.rotation = originalRotationValue;
+            rb.angularVelocity = new Vector3(0, 0, 0);
+            rb.velocity = new Vector3(0, 0, 0);
+            score++;
+        }
     }
 
-    void OnTriggerEnter(Collider other)
+    /*void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("golfScore") ) {
             this.transform.position = snapPosition;
@@ -57,5 +76,5 @@ public class Bola : MonoBehaviour {
             rb.angularVelocity= new Vector3(0,0,0);
             rb.velocity= new Vector3(0,0,0);
         }
-    }
+    }*/
 }
