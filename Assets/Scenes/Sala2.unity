@@ -1601,7 +1601,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh35978
+  m_Name: pb_Mesh133464
   serializedVersion: 11
   m_SubMeshes:
   - serializedVersion: 2
@@ -3047,12 +3047,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc95bb6d4f8a4490abc0570caa1a496a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  scoreText: {fileID: 0}
-  timeText: {fileID: 0}
-  gameOverText: {fileID: 0}
-  timeCount: 30
-  maxScore: 0
+  speed: 100
+  scoreText: {fileID: 1015269416}
+  timeText: {fileID: 137736422}
+  gameOverText: {fileID: 1123975582}
+  timeCount: 25
+  maxScore: 20
+  hitSound: {fileID: 8300000, guid: b7f701a1e4229784aae8da5ef7ef826d, type: 3}
 --- !u!54 &1754662589
 Rigidbody:
   m_ObjectHideFlags: 0

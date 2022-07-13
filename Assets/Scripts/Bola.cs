@@ -29,11 +29,17 @@ public class Bola : MonoBehaviour {
     [SerializeField]
     public int maxScore;
 
+    public AudioClip hitSound;
+    private AudioSource audiosource;
+
     void Start()
     {
         rb = GetComponent<Rigidbody> ();
         snapPosition = this.transform.position;
         originalRotationValue = transform.rotation;
+        scoreText.text = "Score: " + score;
+        gameOverText.text = "";
+        audiosource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -46,6 +52,33 @@ public class Bola : MonoBehaviour {
             rb.angularVelocity= new Vector3(0,0,0);
             rb.velocity= new Vector3(0,0,0);
 
+        }
+        timeCounter();
+        scoreCounter();
+    }
+    void timeCounter()
+    {
+        if (timeCount > 0)
+        {
+            timeCount -= 1 * Time.deltaTime;
+        }
+        else
+        {
+            gameOverText.text = "GAME OVER!";
+            timeCount = 0;
+            Time.timeScale = 0f;
+        }
+        timeText.text = "Time: " + timeCount;
+    }
+
+    void scoreCounter()
+    {
+        if (score == maxScore)
+        {
+            gameOverText.text = "GAME OVER!";
+            timeCount = 0;
+            Time.timeScale = 0f;
+            timeText.text = "Time: " + timeCount;
         }
     }
 
@@ -65,6 +98,8 @@ public class Bola : MonoBehaviour {
             rb.angularVelocity = new Vector3(0, 0, 0);
             rb.velocity = new Vector3(0, 0, 0);
             score++;
+            scoreText.text = "Score: " + score;
+            audiosource.Play();
         }
     }
 
