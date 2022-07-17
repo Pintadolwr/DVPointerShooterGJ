@@ -31,17 +31,22 @@ public class Target : MonoBehaviour
     public AudioClip hitSound;
     private AudioSource audiosource;
 
+    public int totalScore;
+
     private Vector3 snapPosition;
     private Quaternion originalRotationValue;
     // Start is called before the first frame update
     void Start()
     {
+        timeCount = 30;
+        score = 0;
         rb = GetComponent<Rigidbody>();
         snapPosition = this.transform.position;
         originalRotationValue = transform.rotation;
         scoreText.text = "Score: " + score;
         gameOverText.text = "";
         audiosource = GetComponent<AudioSource>();
+        totalScore = PlayerPrefs.GetInt("totalScore");
     }
 
     // Update is called once per frame
@@ -73,6 +78,7 @@ public class Target : MonoBehaviour
             gameOverText.text = "GAME OVER!";
             timeCount = 0;
             Time.timeScale = 0f;
+            goBack();
         }
         timeText.text = "Time: " + timeCount;
     }
@@ -84,11 +90,15 @@ public class Target : MonoBehaviour
             timeCount = 0;
             Time.timeScale = 0f;
             timeText.text = "Time: " + timeCount;
+            goBack();
         }
     }
 
-    IEnumerator wait() {
-        yield return new WaitForSeconds(5f);
+    void goBack()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        totalScore += score;
+        PlayerPrefs.SetInt("totalScore", totalScore);
     }
 
     private void FixedUpdate()

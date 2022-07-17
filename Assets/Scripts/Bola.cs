@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Bola : MonoBehaviour {
 
@@ -32,6 +33,8 @@ public class Bola : MonoBehaviour {
     public AudioClip hitSound;
     private AudioSource audiosource;
 
+    public int totalScore;
+
     void Start()
     {
         rb = GetComponent<Rigidbody> ();
@@ -40,6 +43,7 @@ public class Bola : MonoBehaviour {
         scoreText.text = "Score: " + score;
         gameOverText.text = "";
         audiosource = GetComponent<AudioSource>();
+        totalScore = PlayerPrefs.GetInt("totalScore");
     }
 
     // Update is called once per frame
@@ -56,6 +60,7 @@ public class Bola : MonoBehaviour {
         timeCounter();
         scoreCounter();
     }
+
     void timeCounter()
     {
         if (timeCount > 0)
@@ -67,6 +72,7 @@ public class Bola : MonoBehaviour {
             gameOverText.text = "GAME OVER!";
             timeCount = 0;
             Time.timeScale = 0f;
+            goBack();
         }
         timeText.text = "Time: " + timeCount;
     }
@@ -79,7 +85,14 @@ public class Bola : MonoBehaviour {
             timeCount = 0;
             Time.timeScale = 0f;
             timeText.text = "Time: " + timeCount;
+            goBack();
         }
+    }
+
+    void goBack() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        totalScore += score;
+        PlayerPrefs.SetInt("totalScore", totalScore);
     }
 
     void FixedUpdate () {
