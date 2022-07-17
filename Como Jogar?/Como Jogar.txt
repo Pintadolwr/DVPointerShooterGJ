@@ -1,32 +1,15 @@
+O seu objetivo é jogar nas mesas de flipper, ganhar pontos para desbloquear futuras mesas.
 
+Ao desbloquear a próxima mesa, é possível que a sala de jogo receba pequenos upgrades.
 
-Nome jogo: PointerShooter
+Jogo da Bola - Objetivo: 
+	 - desviar dos objetos e colocar a bola no buraco, ganhando assim pontos.
+	 - Pode controlar a bola usando as setas do seu teclado. 
 
-Pointer com Barra a mover-se
+Jogo Shooter - Objetivo: 
+	- acertar no alvo, para ganhar pontos.
+	- jogue com o botão mouse 1 para disparar.
 
-3 níveis (easy, medium, hard) com timer.
-1 nível pratice sem restrições.
-1 nível desafio.
+Caso necessite, pode colocar o jogo em PAUSE, pressionando a Tecla ESC(Escape) do teclado.
 
-
-Explicação dos níveis:
-	- Practice: barra fixa e pointer lento; sem tempo
-	- Easy: barra fixa em cima e pointer em movimento lento
-	- Medium: barra dinâmica em cima e pointer ligeiramente mais rápido
-	- Hard: barra dinâmica em cima rápida e pointer rápido
-	- Desafio: barra dinâmica (começa lenta e aumenta a velocidade) e pointer rápido; sem tempo
-
-
-Todos têm score
-Power up e power down a rever.
-
-
-Os níveis acabam quando o jogador acertar x vezes na barra
-
-
-Menu:
-	- Practice
-	- Easy
-	- Medium
-	- Hard
-	- Challenge
+Pode fazer upgrade nas salas, se cumprir os pontos mínimos necessários.
