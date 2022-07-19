@@ -1,0 +1,15 @@
+O seu objetivo é jogar nas mesas de flipper, ganhar pontos para desbloquear futuras mesas.
+
+Ao desbloquear a próxima mesa, é possível que a sala de jogo receba pequenos upgrades.
+
+Jogo da Bola - Objetivo: 
+	 - desviar dos objetos e colocar a bola no buraco, ganhando assim pontos.
+	 - Pode controlar a bola usando as setas do seu teclado. 
+
+Jogo Shooter - Objetivo: 
+	- acertar no alvo, para ganhar pontos.
+	- jogue com o botão mouse 1 para disparar.
+
+Caso necessite, pode colocar o jogo em PAUSE, pressionando a Tecla ESC(Escape) do teclado.
+
+Pode fazer upgrade nas salas, se cumprir os pontos mínimos necessários.
